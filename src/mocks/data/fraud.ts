@@ -1,0 +1,78 @@
+import type { FraudAlert } from '@/types'
+
+export let fraudAlerts: FraudAlert[] = [
+  {
+    id: 'frd-001',
+    customerId: 'usr-cust-003',
+    customerName: 'Musa Ibrahim',
+    transactionId: 'TXN-938220',
+    amount: 950000,
+    riskLevel: 'high',
+    riskScore: 92,
+    status: 'open',
+    reason: 'Unusual transfer velocity — 5 transactions in 10 minutes',
+    createdAt: new Date(Date.now() - 1800000).toISOString(),
+    devices: ['iPhone 14 Pro', 'Samsung Galaxy A54'],
+    ipHistory: ['102.89.45.12', '197.210.88.34', '102.89.45.12'],
+    previousFlags: 2,
+    velocityCount: 5,
+    geoLocation: 'Lagos → Abuja (anomaly)',
+  },
+  {
+    id: 'frd-002',
+    customerId: 'usr-cust-002',
+    customerName: 'Grace Okoro',
+    transactionId: 'TXN-938218',
+    amount: 120000,
+    riskLevel: 'medium',
+    riskScore: 68,
+    status: 'investigating',
+    reason: 'First-time transfer to new beneficiary',
+    createdAt: new Date(Date.now() - 3600000).toISOString(),
+    devices: ['Tecno Spark 10'],
+    ipHistory: ['197.210.12.88'],
+    previousFlags: 0,
+    velocityCount: 1,
+    geoLocation: 'Port Harcourt',
+  },
+  {
+    id: 'frd-003',
+    customerId: 'usr-cust-005',
+    customerName: 'Tunde Bakare',
+    transactionId: 'TXN-938210',
+    amount: 450000,
+    riskLevel: 'high',
+    riskScore: 88,
+    status: 'open',
+    reason: 'Account previously flagged for suspicious activity',
+    createdAt: new Date(Date.now() - 7200000).toISOString(),
+    devices: ['Infinix Note 30', 'Web Browser'],
+    ipHistory: ['41.203.45.67', '102.89.12.45'],
+    previousFlags: 3,
+    velocityCount: 3,
+    geoLocation: 'Ibadan',
+  },
+  {
+    id: 'frd-004',
+    customerId: 'usr-cust-004',
+    customerName: 'Ngozi Eze',
+    transactionId: 'TXN-938205',
+    amount: 25000,
+    riskLevel: 'low',
+    riskScore: 35,
+    status: 'approved',
+    reason: 'Low-value transfer — auto-cleared',
+    createdAt: new Date(Date.now() - 86400000).toISOString(),
+    devices: ['iPhone SE'],
+    ipHistory: ['197.210.55.22'],
+    previousFlags: 0,
+    velocityCount: 1,
+    geoLocation: 'Enugu',
+  },
+]
+
+export function updateFraudAlert(id: string, status: FraudAlert['status']) {
+  const idx = fraudAlerts.findIndex((a) => a.id === id)
+  if (idx >= 0) fraudAlerts[idx] = { ...fraudAlerts[idx], status }
+  return fraudAlerts[idx]
+}

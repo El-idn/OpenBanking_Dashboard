@@ -1,0 +1,58 @@
+import type { Report } from '@/types'
+
+export const reports: Report[] = [
+  {
+    id: 'rpt-001',
+    type: 'daily_settlement',
+    title: 'Daily Settlement Report',
+    description: 'End-of-day settlement summary for all channels',
+    generatedAt: new Date(Date.now() - 3600000).toISOString(),
+    period: '17 Jun 2026',
+    status: 'ready',
+  },
+  {
+    id: 'rpt-002',
+    type: 'transfer_failure',
+    title: 'Transfer Failure Report',
+    description: 'Failed transfers by bank, channel, and error code',
+    generatedAt: new Date(Date.now() - 86400000).toISOString(),
+    period: '16 Jun 2026',
+    status: 'ready',
+  },
+  {
+    id: 'rpt-003',
+    type: 'revenue',
+    title: 'Revenue Report',
+    description: 'Transaction fees and interchange revenue breakdown',
+    generatedAt: new Date(Date.now() - 172800000).toISOString(),
+    period: 'Jun 2026 (MTD)',
+    status: 'ready',
+  },
+  {
+    id: 'rpt-004',
+    type: 'agent_activity',
+    title: 'Agent Activity Report',
+    description: 'POS agent transactions and commission summary',
+    generatedAt: new Date(Date.now() - 259200000).toISOString(),
+    period: 'Jun 2026 (Week 2)',
+    status: 'ready',
+  },
+  {
+    id: 'rpt-005',
+    type: 'kyc_compliance',
+    title: 'KYC Compliance Report',
+    description: 'KYC tier distribution and pending verifications',
+    generatedAt: new Date(Date.now() - 345600000).toISOString(),
+    period: 'Jun 2026 (MTD)',
+    status: 'ready',
+  },
+  {
+    id: 'rpt-006',
+    type: 'fraud_investigation',
+    title: 'Fraud Investigation Report',
+    description: 'Open fraud cases, resolutions, and loss prevention metrics',
+    generatedAt: new Date(Date.now() - 432000000).toISOString(),
+    period: 'Jun 2026 (MTD)',
+    status: 'ready',
+  },
+]
